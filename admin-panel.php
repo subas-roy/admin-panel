@@ -45,4 +45,11 @@ function admin_panel_enqueue_assets($hook)
 }
 add_action('admin_enqueue_scripts', 'admin_panel_enqueue_assets');
 
+function admin_panel_save_settings() // This function will handle the form submission when the form is submitted. It will be triggered by the 'admin_post_save_admin_panel_settings' action.
+{
+  error_log('================================');
+  error_log(print_r($_REQUEST, true));
+  error_log('================================');
+}
+
 add_action('admin_post_save_admin_panel_settings', 'admin_panel_save_settings'); // Register the function to handle the form submission when the 'action' parameter in the form is set to 'save_admin_panel_settings'
