@@ -44,3 +44,5 @@ function admin_panel_enqueue_assets($hook)
   wp_enqueue_script('admin-panel', plugin_dir_url(__FILE__) . 'admin-script.js', ['jquery'], '1.0.0', true);
 }
 add_action('admin_enqueue_scripts', 'admin_panel_enqueue_assets');
+
+add_action('admin_post_save_admin_panel_settings', 'admin_panel_save_settings'); // Register the function to handle the form submission when the 'action' parameter in the form is set to 'save_admin_panel_settings'
