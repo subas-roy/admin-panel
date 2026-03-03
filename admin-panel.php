@@ -45,11 +45,33 @@ function admin_panel_enqueue_assets($hook)
 }
 add_action('admin_enqueue_scripts', 'admin_panel_enqueue_assets');
 
-function admin_panel_save_settings() // This function will handle the form submission when the form is submitted. It will be triggered by the 'admin_post_save_admin_panel_settings' action.
+function admin_panel_save_settings()
 {
-  error_log('================================');
-  error_log(print_r($_REQUEST, true));
-  error_log('================================');
-}
+  if (!wp_verify_nonce($_REQUEST['nonce'], 'admin_panel_nonce')) {
+    wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=unauthorized'));
+  }
 
+  if (!is_string($_REQUEST['name'])) {
+    wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=invalid-name'));
+  }
+  if (!is_email($_REQUEST['email'])) {
+    wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=invalid-email'));
+  }
+  if (!is_numeric($_REQUEST['age'])) {
+    wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=invalid-age'));
+  }
+  if (!is_string($_REQUEST['message'])) {
+    wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=invalid-message'));
+  }
+
+  $sanitize = [];
+  $sanitize['name'] = sanitize_text_field($_REQUEST['name']);
+  $sanitize['email'] = sanitize_email($_REQUEST['email']);
+  $sanitize['age'] = intval($_REQUEST['age']);
+  $sanitize['message'] = sanitize_textarea_field($_REQUEST['message']);
+
+  update_option('admin_panel_settings', $sanitize);
+
+  wp_safe_redirect(admin_url('admin.php?page=admin-panel&status=success'));
+}
 add_action('admin_post_save_admin_panel_settings', 'admin_panel_save_settings'); // Register the function to handle the form submission when the 'action' parameter in the form is set to 'save_admin_panel_settings'
