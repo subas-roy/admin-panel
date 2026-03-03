@@ -1,0 +1,15 @@
+.toplevel_page_admin-panel h1 {
+  margin-bottom: 20px;
+}
+
+.toplevel_page_admin-panel #admin-panel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toplevel_page_admin-panel #admin-panel-form input,
+.toplevel_page_admin-panel #admin-panel-form textarea {
+  padding: 10px;
+  width: 50%;
+}

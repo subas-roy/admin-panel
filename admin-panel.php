@@ -30,5 +30,14 @@ function admin_panel_menu_page()
 add_action('admin_menu', 'admin_panel_menu_page');
 function admin_panel_content()
 {
-  echo '<div class="wrap"><h1>' . __('Welcome to the Admin Panel', 'admin-panel') . '</h1><p>' . __('This is a demo plugin to demonstrate an admin panel in WordPress.', 'admin-panel') . '</p></div>';
+  echo '<div class="wrap">';
+  include plugin_dir_path(__FILE__) . 'form.php';
+  echo '</div>';
 }
+
+function admin_panel_enqueue_assets()
+{
+  wp_enqueue_style('admin-panel', plugin_dir_url(__FILE__) . 'admin-style.css', [], '1.0.0', 'all');
+  wp_enqueue_script('admin-panel', plugin_dir_url(__FILE__) . 'admin-script.js', ['jquery'], '1.0.0', true);
+}
+add_action('admin_enqueue_scripts', 'admin_panel_enqueue_assets');
