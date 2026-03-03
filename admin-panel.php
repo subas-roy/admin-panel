@@ -35,8 +35,11 @@ function admin_panel_content()
   echo '</div>';
 }
 
-function admin_panel_enqueue_assets()
+function admin_panel_enqueue_assets($hook)
 {
+  if ($hook !== 'toplevel_page_admin-panel') { // Only load assets on our plugin's admin page for better performance
+    return;
+  }
   wp_enqueue_style('admin-panel', plugin_dir_url(__FILE__) . 'admin-style.css', [], '1.0.0', 'all');
   wp_enqueue_script('admin-panel', plugin_dir_url(__FILE__) . 'admin-script.js', ['jquery'], '1.0.0', true);
 }
