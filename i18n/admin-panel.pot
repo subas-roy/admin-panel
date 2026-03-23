@@ -1,0 +1,64 @@
+# Copyright (C) 2026 Subas Roy
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Admin Panel 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/admin-panel\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-23T08:59:39+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: admin-panel\n"
+
+#. Plugin Name of the plugin
+#: admin-panel.php
+msgid "Admin Panel"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: admin-panel.php
+msgid "https://github.com/subas-roy/"
+msgstr ""
+
+#. Description of the plugin
+#: admin-panel.php
+msgid "A demo plugin to demostrate admin panel in WordPress."
+msgstr ""
+
+#. Author of the plugin
+#: admin-panel.php
+msgid "Subas Roy"
+msgstr ""
+
+#: form.php:6
+msgid "Admin Panel Settings"
+msgstr ""
+
+#: form.php:9
+msgid "Settings saved successfully!"
+msgstr ""
+
+#: form.php:13
+msgid "Your Name"
+msgstr ""
+
+#: form.php:14
+msgid "Your Email"
+msgstr ""
+
+#: form.php:15
+msgid "Your Age"
+msgstr ""
+
+#: form.php:16
+msgid "Write your message"
+msgstr ""
+
+#: form.php:19
+msgid "Submit"
+msgstr ""

@@ -16,11 +16,18 @@
 /**
  * Register a custom menu page.
  */
+
+add_action('plugins_loaded', 'admin_panel_init_plugin');
+function admin_panel_init_plugin()
+{
+  load_plugin_textdomain('admin-panel', false, plugin_dir_path(__FILE__) . 'i18n/');
+}
+
 function admin_panel_menu_page()
 {
   add_menu_page(
-    __('Admin Panel', 'admin-panel'),
-    __('Admin Panel', 'admin-panel'),
+    esc_html('Admin Panel', 'admin-panel'),
+    esc_html('Admin Panel', 'admin-panel'),
     'manage_options',
     'admin-panel',
     'admin_panel_content',
